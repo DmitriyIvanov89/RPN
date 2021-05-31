@@ -1,0 +1,26 @@
+{
+  "stateDefinition" : [
+    {"id": "S0","finite": "false"},
+    {"id": "S1","finite": "true"},
+    {"id": "S2","finite": "true"},
+    {"id": "S3","finite": "true"},
+    {"id": "S4","finite": "true"},
+    {"id": "S5","finite": "true"},
+    {"id": "S6","finite": "true"},
+    {"id": "S7","finite": "false"}
+  ],
+  "startId": "S0",
+  "transitionsDefinition": [
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""},
+    {"from": "","symbol": "","to": ""}
+  ]
+}
