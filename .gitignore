@@ -1,5 +1,5 @@
-#idea
-.idea/
+# project files
+.idea
 
-#target
-target/
+# target
+target
