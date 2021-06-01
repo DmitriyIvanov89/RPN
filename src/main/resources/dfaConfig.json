@@ -2,15 +2,16 @@
   "stateDefinition" : [
     {"id": "S0","finite": "false"},
     {"id": "S1","finite": "true"},
-    {"id": "S2","finite": "true"},
+    {"id": "S2","finite": "false"},
     {"id": "S3","finite": "true"},
     {"id": "S4","finite": "true"},
     {"id": "S5","finite": "true"},
     {"id": "S6","finite": "true"},
-    {"id": "S7","finite": "false"}
+    {"id": "S7","finite": "true"}
   ],
   "startId": "S0",
   "transitionsDefinition": [
+    {"from": "S0","symbol": "0","to": "S1"},
     {"from": "S0","symbol": "1","to": "S1"},
     {"from": "S0","symbol": "2","to": "S1"},
     {"from": "S0","symbol": "3","to": "S1"},
@@ -31,36 +32,33 @@
     {"from": "S1","symbol": "8","to": "S1"},
     {"from": "S1","symbol": "9","to": "S1"},
 
-    {"from": "S1","symbol": "0","to": "S2"},
+    {"from": "S1","symbol": ".","to": "S2"},
 
-    {"from": "S1","symbol": ".","to": "S7"},
+    {"from": "S2","symbol": "0","to": "S3"},
+    {"from": "S2","symbol": "1","to": "S3"},
+    {"from": "S2","symbol": "2","to": "S3"},
+    {"from": "S2","symbol": "3","to": "S3"},
+    {"from": "S2","symbol": "4","to": "S3"},
+    {"from": "S2","symbol": "5","to": "S3"},
+    {"from": "S2","symbol": "6","to": "S3"},
+    {"from": "S2","symbol": "7","to": "S3"},
+    {"from": "S2","symbol": "8","to": "S3"},
+    {"from": "S2","symbol": "9","to": "S3"},
 
-    {"from": "S2","symbol": "1","to": "S1"},
-    {"from": "S2","symbol": "2","to": "S1"},
-    {"from": "S2","symbol": "3","to": "S1"},
-    {"from": "S2","symbol": "4","to": "S1"},
-    {"from": "S2","symbol": "5","to": "S1"},
-    {"from": "S2","symbol": "6","to": "S1"},
-    {"from": "S2","symbol": "7","to": "S1"},
-    {"from": "S2","symbol": "8","to": "S1"},
-    {"from": "S2","symbol": "9","to": "S1"},
+    {"from": "S3","symbol": "0","to": "S3"},
+    {"from": "S3","symbol": "1","to": "S3"},
+    {"from": "S3","symbol": "2","to": "S3"},
+    {"from": "S3","symbol": "3","to": "S3"},
+    {"from": "S3","symbol": "4","to": "S3"},
+    {"from": "S3","symbol": "5","to": "S3"},
+    {"from": "S3","symbol": "6","to": "S3"},
+    {"from": "S3","symbol": "7","to": "S3"},
+    {"from": "S3","symbol": "8","to": "S3"},
+    {"from": "S3","symbol": "9","to": "S3"},
 
-    {"from": "S2","symbol": ".","to": "S7"},
-
-    {"from": "S7","symbol": "0","to": "S2"},
-    {"from": "S7","symbol": "1","to": "S2"},
-    {"from": "S7","symbol": "2","to": "S2"},
-    {"from": "S7","symbol": "3","to": "S2"},
-    {"from": "S7","symbol": "4","to": "S2"},
-    {"from": "S7","symbol": "5","to": "S2"},
-    {"from": "S7","symbol": "6","to": "S2"},
-    {"from": "S7","symbol": "7","to": "S2"},
-    {"from": "S7","symbol": "8","to": "S2"},
-    {"from": "S7","symbol": "9","to": "S2"},
-
-    {"from": "S0","symbol": "+","to": "S3"},
-    {"from": "S0","symbol": "-","to": "S4"},
-    {"from": "S0","symbol": "*","to": "S5"},
-    {"from": "S0","symbol": "/","to": "S6"}
+    {"from": "S0","symbol": "+","to": "S4"},
+    {"from": "S0","symbol": "-","to": "S5"},
+    {"from": "S0","symbol": "*","to": "S6"},
+    {"from": "S0","symbol": "/","to": "S7"}
   ]
 }
