@@ -1,12 +1,11 @@
 package DFA;
 
 import com.google.gson.Gson;
-
 import java.io.*;
 
 public class DFAConfigReader {
 
-    private String configPath;
+    private final String configPath;
 
     public DFAConfigReader(String configPath) {
         this.configPath = configPath;
