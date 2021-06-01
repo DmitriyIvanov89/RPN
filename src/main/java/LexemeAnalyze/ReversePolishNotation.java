@@ -1,3 +1,5 @@
+package LexemeAnalyze;
+
 import DFA.DFA;
 import DFA.DFAConfig;
 import DFA.DFAConfigReader;
