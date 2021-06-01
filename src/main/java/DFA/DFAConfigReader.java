@@ -14,7 +14,7 @@ public class DFAConfigReader {
         this.configPath = configPath;
     }
 
-    public DFAConfig readConfigJson(String configPath) throws IOException {
+    public DFAConfig readConfigJson() throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(configPath))) {
             return new Gson().fromJson(reader, DFAConfig.class);
         }
