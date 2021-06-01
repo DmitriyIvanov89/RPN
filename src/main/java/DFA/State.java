@@ -9,7 +9,7 @@ public class State {
     private boolean finite;
     private Map<Character, State> transition;
 
-    public State(String id, boolean finite, Map<Character, State> transition) {
+    public State(String id, boolean finite) {
         this.id = id;
         this.finite = finite;
         this.transition = new HashMap<>();
