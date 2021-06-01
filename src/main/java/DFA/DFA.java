@@ -1,7 +1,5 @@
 package DFA;
 
-import DFA.DFAConfig.DFAState;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,9 +10,19 @@ public class DFA {
 
     public DFA(DFAConfig config) {
         this.dfa = new HashMap<>();
+
         for (DFAConfig.DFAState state : config.getStateDefinition()) {
             dfa.put(state.getId(), new State(state.getId(), state.isFinite()));
         }
+
+        for (DFAConfig.DFATransition transit : config.getTransitionsDefinition()) {
+            dfa.get(transit.getFrom()).addTransition(transit.getSymbol(), dfa.get(transit.getTo()));
+        }
+
+        this.startState = dfa.get(config.getStartId());
     }
 
+    public State getStartState() {
+        return startState;
+    }
 }
