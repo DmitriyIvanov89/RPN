@@ -2,8 +2,8 @@ package lexicalAnalyzer;
 
 public class Token {
 
-    private String value;
-    private TokenType type;
+    private final String value;
+    private final TokenType type;
 
     public Token(String value, TokenType type) {
         this.value = value;
