@@ -22,6 +22,7 @@
     {"from": "S0","symbol": "8","to": "S1"},
     {"from": "S0","symbol": "9","to": "S1"},
 
+    {"from": "S1","symbol": "0","to": "S1"},
     {"from": "S1","symbol": "1","to": "S1"},
     {"from": "S1","symbol": "2","to": "S1"},
     {"from": "S1","symbol": "3","to": "S1"},
