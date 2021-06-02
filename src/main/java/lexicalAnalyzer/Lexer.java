@@ -1,4 +1,4 @@
-package LexemeAnalyze;
+package lexicalAnalyzer;
 
 public class Lexer {
 

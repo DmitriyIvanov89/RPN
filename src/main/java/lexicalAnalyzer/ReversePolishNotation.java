@@ -1,4 +1,4 @@
-package LexemeAnalyze;
+package lexicalAnalyzer;
 
 import DFA.DFA;
 import DFA.DFAConfig;
