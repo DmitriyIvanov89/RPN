@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class State {
 
-    private String id;
-    private boolean finite;
-    private Map<Character, State> transition;
+    private final String id;
+    private final boolean finite;
+    private final Map<Character, State> transition;
 
     public State(String id, boolean finite) {
         this.id = id;

@@ -5,9 +5,9 @@ import java.util.List;
 
 public class DFAConfig {
 
-    private List<DFAState> stateDefinition;
-    private List<DFATransition> transitionsDefinition;
-    private String startId;
+    private final List<DFAState> stateDefinition;
+    private final List<DFATransition> transitionsDefinition;
+    private final String startId;
 
     public DFAConfig(List<DFAState> stateDefinition, List<DFATransition> transitionsDefinition, String startId) {
         this.stateDefinition = new ArrayList<>();
@@ -29,9 +29,9 @@ public class DFAConfig {
 
     public class DFATransition {
 
-        private String from;
-        private Character symbol;
-        private String to;
+        private final String from;
+        private final Character symbol;
+        private final String to;
 
         public DFATransition(String from, Character symbol, String to) {
             this.from = from;
@@ -54,8 +54,8 @@ public class DFAConfig {
 
     public class DFAState {
 
-        private String id;
-        private boolean finite;
+        private final String id;
+        private final boolean finite;
 
         public DFAState(String id, boolean finite) {
             this.id = id;
