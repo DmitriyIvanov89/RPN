@@ -7,11 +7,11 @@
     {"id": "S4","finite": "true"},
     {"id": "S5","finite": "true"},
     {"id": "S6","finite": "true"},
-    {"id": "S7","finite": "true"}
+    {"id": "S7","finite": "true"},
+    {"id": "S8","finite": "false"}
   ],
   "startId": "S0",
   "transitionsDefinition": [
-    {"from": "S0","symbol": "0","to": "S1"},
     {"from": "S0","symbol": "1","to": "S1"},
     {"from": "S0","symbol": "2","to": "S1"},
     {"from": "S0","symbol": "3","to": "S1"},
@@ -60,6 +60,9 @@
     {"from": "S0","symbol": "+","to": "S4"},
     {"from": "S0","symbol": "-","to": "S5"},
     {"from": "S0","symbol": "*","to": "S6"},
-    {"from": "S0","symbol": "/","to": "S7"}
+    {"from": "S0","symbol": "/","to": "S7"},
+
+    {"from": "S0","symbol": "0","to": "S8"},
+    {"from": "S8","symbol": ".","to": "S2"}
   ]
 }
