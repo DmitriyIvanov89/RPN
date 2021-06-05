@@ -20,6 +20,6 @@ public class Token {
 
     @Override
     public String toString() {
-        return String.format("Token value: %s, token type: %s", value, type);
+        return String.format("Token type: %s, value: %s", type, value);
     }
 }
