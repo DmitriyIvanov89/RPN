@@ -1,14 +1,12 @@
 package lexicalAnalyzer;
 
-import DFA.DFA;
-import DFA.DFAConfig;
-import DFA.DFAConfigReader;
+import java.io.IOException;
 
 public class Lexer {
 
     private final String expr;
 
-    public Lexer(String expr) {
+    public Lexer(String expr) throws IOException {
         this.expr = expr;
     }
 
