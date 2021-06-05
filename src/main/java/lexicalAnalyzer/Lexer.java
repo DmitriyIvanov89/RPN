@@ -9,6 +9,9 @@ import DFA.State;
 public class Lexer {
 
     private final String expr;
+    private DFA dfa;
+    private State startState;
+    private DFAConfigReader reader;
 
     public Lexer(String expr) {
         this.expr = expr;
