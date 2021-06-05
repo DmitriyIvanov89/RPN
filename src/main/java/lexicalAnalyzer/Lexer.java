@@ -1,13 +1,12 @@
 package lexicalAnalyzer;
 
-import java.io.IOException;
-
 import DFA.*;
 
 public class Lexer {
 
     private final String expr;
     private State currState;
+    private Token currentToken;
     private DFA dfa;
 
     public Lexer(String expr, DFA dfa) {
@@ -26,15 +25,15 @@ public class Lexer {
                 if (!currState.isFinite()) {
                     System.out.println("Wrong lexer");
                 } else {
-                    return new Token(value, TokenType.NUMBER);
+                    currentToken = new Token(value, TokenType.NUMBER);
+                    currState = dfa.getStartState();
                 }
             }
         }
-        return null;
+        return currentToken;
     }
 
     public Token lookAHead() {
         return null;
     }
-
 }
