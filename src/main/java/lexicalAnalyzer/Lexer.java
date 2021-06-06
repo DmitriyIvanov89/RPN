@@ -23,7 +23,7 @@ public class Lexer {
                 value += expr.charAt(i);
             } else {
                 if (!currState.isFinite()) {
-                    System.out.println("Wrong lexer");
+                    System.out.println("Wrong state");
                 } else {
                     currentToken = new Token(value, TokenType.NUMBER);
                     currState = dfa.getStartState();
