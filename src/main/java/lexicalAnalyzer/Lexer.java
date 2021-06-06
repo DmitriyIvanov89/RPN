@@ -17,16 +17,19 @@ public class Lexer {
     public Token getNextToken() {
         currState = dfa.getStartState();
         String value = "";
-        for (int i = 0; i < expr.length(); i++) {
-            if (currState.hasTransition(expr.charAt(i))) {
-                currState = currState.getTransition(expr.charAt(i));
-                value += expr.charAt(i);
+        int pos = 0;
+        while (pos < expr.length()){
+            if (currState.hasTransition(expr.charAt(pos))) {
+                currState = currState.getTransition(expr.charAt(pos));
+                value += expr.charAt(pos);
+                pos++;
             } else {
                 if (!currState.isFinite()) {
                     System.out.println("Wrong state");
                 } else {
                     currentToken = new Token(value, TokenType.NUMBER);
                     currState = dfa.getStartState();
+
                 }
             }
         }
