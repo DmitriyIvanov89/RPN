@@ -14,12 +14,5 @@ public class ReversePolishNotation {
 
         String expression = "22+1";
 
-        DFAConfigReader reader = new DFAConfigReader(CONFIG_PATH);
-        DFAConfig config = reader.readConfigJson();
-        DFA dfa = new DFA(config);
-
-        Lexer lexer = new Lexer(expression, dfa);
-        System.out.println(lexer.getNextToken());
-
     }
 }
