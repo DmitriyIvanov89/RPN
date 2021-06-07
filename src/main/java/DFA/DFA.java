@@ -22,6 +22,7 @@ public class DFA {
         }
 
         this.startState = dfa.get(config.getStartId());
+        this.StateType = StateType;
     }
 
     public State getStartState() {

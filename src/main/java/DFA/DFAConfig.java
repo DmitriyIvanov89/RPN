@@ -1,7 +1,5 @@
 package DFA;
 
-import lexicalAnalyzer.TokenType;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +61,6 @@ public class DFAConfig {
         public DFAState(String id, boolean finite) {
             this.id = id;
             this.finite = finite;
-            this.TokenType = TokenType;
         }
 
         public String getId() {

@@ -1,7 +1,5 @@
 package DFA;
 
-import lexicalAnalyzer.TokenType;
-
 import java.util.HashMap;
 import java.util.Map;
 
