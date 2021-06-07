@@ -1,17 +1,17 @@
 {
   "stateDefinition" : [
-    {"id": "S0","finite": "false"},
-    {"id": "S1","finite": "true"},
-    {"id": "S2","finite": "false"},
-    {"id": "S3","finite": "true"},
-    {"id": "S4","finite": "true"},
-    {"id": "S5","finite": "true"},
-    {"id": "S6","finite": "true"},
-    {"id": "S7","finite": "true"}
+    {"id": "S0","finite": "false","TokenType": "DEFAULT"},
+    {"id": "S1","finite": "true","TokenType": "NUMBER"},
+    {"id": "S2","finite": "false","TokenType": "COMMA"},
+    {"id": "S3","finite": "true","TokenType": "NUMBER"},
+    {"id": "S4","finite": "true","TokenType": "OP_PLUS"},
+    {"id": "S5","finite": "true","TokenType": "OP_MINUS"},
+    {"id": "S6","finite": "true","TokenType": "OP_MUL"},
+    {"id": "S7","finite": "true","TokenType": "OP_DIV"},
+    {"id": "S8","finite": "false","TokenType": "NUMBER"}
   ],
   "startId": "S0",
   "transitionsDefinition": [
-    {"from": "S0","symbol": "0","to": "S1"},
     {"from": "S0","symbol": "1","to": "S1"},
     {"from": "S0","symbol": "2","to": "S1"},
     {"from": "S0","symbol": "3","to": "S1"},
@@ -60,6 +60,9 @@
     {"from": "S0","symbol": "+","to": "S4"},
     {"from": "S0","symbol": "-","to": "S5"},
     {"from": "S0","symbol": "*","to": "S6"},
-    {"from": "S0","symbol": "/","to": "S7"}
+    {"from": "S0","symbol": "/","to": "S7"},
+
+    {"from": "S0","symbol": "0","to": "S8"},
+    {"from": "S8","symbol": ".","to": "S2"}
   ]
 }

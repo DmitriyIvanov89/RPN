@@ -5,6 +5,7 @@ import DFA.*;
 public class Lexer {
 
     private final String expr;
+<<<<<<< HEAD
     private State currState;
     private Token currentToken;
     private DFA dfa;
@@ -34,6 +35,34 @@ public class Lexer {
             }
         }
         return currentToken;
+=======
+    private DFA dfa;
+    private State currState;
+    private Token currToken;
+    private String value;
+    private int position;
+
+    public Lexer(String expr, DFA dfa) {
+        this.expr = expr;
+        this.currState = dfa.getStartState();
+    }
+
+    public Token getNextToken() {
+        for (int i = 0; i < expr.length(); i++) {
+            if (currState.hasTransition(expr.charAt(i))) {
+                currState = currState.getTransition(expr.charAt(i));
+                value += expr.charAt(i);
+            } else {
+                if (!currState.isFinite()) {
+                    System.out.println("Wrong expression!");
+                    break;
+                } else {
+                    currToken = new Token(value, currState.getType());
+                }
+            }
+        }
+        return currToken;
+>>>>>>> 63e5c70e6a1c6318dd5f012522c82e18b20f514d
     }
 
     public Token lookAHead() {
