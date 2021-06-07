@@ -18,6 +18,10 @@ public class DFA {
             dfa.put(state.getId(), new State(state.getId(), state.isFinite()));
         }
 
+        for (DFAConfig.DFAState state : config.getStateDefinition()) {
+            
+        }
+
         for (DFAConfig.DFATransition transit : config.getTransitionsDefinition()) {
             dfa.get(transit.getFrom()).addTransition(transit.getSymbol(), dfa.get(transit.getTo()));
         }

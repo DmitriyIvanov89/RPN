@@ -10,12 +10,13 @@ public class State {
 
     private final String id;
     private final boolean finite;
+    private final TokenType type;
     private final Map<Character, State> transition;
-    private TokenType type;
 
     public State(String id, boolean finite) {
         this.id = id;
         this.finite = finite;
+        this.type = getType();
         this.transition = new HashMap<>();
     }
 
