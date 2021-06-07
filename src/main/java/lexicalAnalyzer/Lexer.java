@@ -11,8 +11,9 @@ public class Lexer {
     private String value = "";
     private int position = 0;
 
-    public Lexer(String expr) {
+    public Lexer(String expr, DFA dfa) {
         this.expr = expr;
+        this.dfa = dfa;
     }
 
     public Token getNextToken() {
@@ -24,7 +25,8 @@ public class Lexer {
                 position++;
             } else {
                 if (!currState.isFinite()) {
-                    System.out.println("wrong lexer");
+                    System.out.println("wrong value token in position: " + currState.getId());
+                    break;
                 } else {
                     currToken = new Token(value, TokenType.NUMBER);
                     currState = dfa.getStartState();

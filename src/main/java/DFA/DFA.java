@@ -6,6 +6,7 @@ import java.util.Map;
 public class DFA {
 
     private final State startState;
+    private State state;
 
     public DFA(DFAConfig config) {
         Map<String, State> dfa = new HashMap<>();
@@ -23,5 +24,9 @@ public class DFA {
 
     public State getStartState() {
         return startState;
+    }
+
+    public State getState() {
+        return state;
     }
 }
