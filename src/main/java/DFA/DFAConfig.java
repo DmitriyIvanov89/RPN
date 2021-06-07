@@ -58,12 +58,12 @@ public class DFAConfig {
 
         private final String id;
         private final boolean finite;
-        private TokenType type;
+        private String TokenType;
 
         public DFAState(String id, boolean finite) {
             this.id = id;
             this.finite = finite;
-            this.type = TokenType.DEFAULT;
+            this.TokenType = TokenType;
         }
 
         public String getId() {
@@ -74,8 +74,8 @@ public class DFAConfig {
             return finite;
         }
 
-        public TokenType getType() {
-            return type;
+        public String getType() {
+            return TokenType;
         }
     }
 }
