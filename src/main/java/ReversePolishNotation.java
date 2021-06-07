@@ -12,7 +12,9 @@ public class ReversePolishNotation {
 
     public static void main(String[] args) throws IOException {
 
-        String expression = "22+1";
+        DFAConfigReader reader = new DFAConfigReader(CONFIG_PATH);
+        DFAConfig config = reader.readConfigJson();
+        DFA dfa = new DFA(config);
 
     }
 }

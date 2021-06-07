@@ -1,12 +1,14 @@
 package DFA;
 
+import lexicalAnalyzer.TokenType;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class DFA {
 
     private final State startState;
-    private State state;
+    private TokenType StateType;
 
     public DFA(DFAConfig config) {
         Map<String, State> dfa = new HashMap<>();
@@ -26,7 +28,7 @@ public class DFA {
         return startState;
     }
 
-    public State getState() {
-        return state;
+    public TokenType getStateType() {
+        return StateType;
     }
 }

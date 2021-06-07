@@ -5,6 +5,7 @@ import DFA.*;
 public class Lexer {
 
     private final String expr;
+    private DFA dfa;
 
     public Lexer(String expr) {
         this.expr = expr;

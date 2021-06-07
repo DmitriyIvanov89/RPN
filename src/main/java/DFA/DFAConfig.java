@@ -63,6 +63,7 @@ public class DFAConfig {
         public DFAState(String id, boolean finite) {
             this.id = id;
             this.finite = finite;
+            this.type = TokenType.DEFAULT;
         }
 
         public String getId() {
