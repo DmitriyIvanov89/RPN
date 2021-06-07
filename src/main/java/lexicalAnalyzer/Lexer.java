@@ -2,25 +2,34 @@ package lexicalAnalyzer;
 
 import DFA.*;
 
-import java.io.IOException;
-
 public class Lexer {
 
     private final String expr;
-    private final static String CONFIG_PATH = "d:\\my\\RPE_repo\\src\\main\\resources\\dfaConfig.json";
+    private DFA dfa;
     private State currState;
     private Token currToken;
     private String value;
+    private int position;
 
-    public Lexer(String expr) throws IOException {
+    public Lexer(String expr, DFA dfa) {
         this.expr = expr;
-        DFAConfigReader reader = new DFAConfigReader(CONFIG_PATH);
-        DFAConfig config = reader.readConfigJson();
-        DFA dfa = new DFA(config);
+        this.dfa = dfa;
     }
 
     public Token getNextToken() {
-        return null;
+        for (int i = 0; i < expr.length(); i++) {
+            if (currState.hasTransition(expr.charAt(i))) {
+                currState = currState.getTransition(expr.charAt(i));
+                value += expr.charAt(i);
+            } else {
+                if (!currState.isFinite()) {
+                    System.out.println("Wrong expression!");
+                    break;
+                } else {
+                    currToken = new Token(value,TokenType.valueOf(currState.))
+                }
+            }
+        }
     }
 
     public Token lookAHead() {

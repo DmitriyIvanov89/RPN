@@ -1,5 +1,6 @@
 package DFA;
 
+import lexicalAnalyzer.Token;
 import lexicalAnalyzer.TokenType;
 
 import java.util.HashMap;
@@ -22,14 +23,10 @@ public class DFA {
         }
 
         this.startState = dfa.get(config.getStartId());
-        this.StateType = StateType;
+
     }
 
     public State getStartState() {
         return startState;
-    }
-
-    public TokenType getStateType() {
-        return StateType;
     }
 }
