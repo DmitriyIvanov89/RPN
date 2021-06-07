@@ -30,4 +30,11 @@ public class State {
     public State getTransition(Character symbol) {
         return transition.get(symbol);
     }
+
+    public boolean hasTransition(Character symbol) {
+        if (this.transition.get(symbol) == null) {
+            return false;
+        }
+        return true;
+    }
 }
