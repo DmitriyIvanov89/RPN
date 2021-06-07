@@ -13,7 +13,7 @@ public class Lexer {
 
     public Lexer(String expr, DFA dfa) {
         this.expr = expr;
-        this.dfa = dfa;
+        this.currState = dfa.getStartState();
     }
 
     public Token getNextToken() {
@@ -26,10 +26,11 @@ public class Lexer {
                     System.out.println("Wrong expression!");
                     break;
                 } else {
-                    currToken = new Token(value,TokenType.valueOf(currState.))
+                    currToken = new Token(value, currState.getType());
                 }
             }
         }
+        return currToken;
     }
 
     public Token lookAHead() {

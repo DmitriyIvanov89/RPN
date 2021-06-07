@@ -19,6 +19,7 @@ public class ReversePolishNotation {
         DFA dfa = new DFA(config);
 
         Lexer lexer = new Lexer(expression, dfa);
+        System.out.println(lexer.getNextToken());
 
 
     }
