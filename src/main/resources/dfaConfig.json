@@ -1,14 +1,14 @@
 {
   "stateDefinition" : [
-    {"id": "S0","finite": "false"},
-    {"id": "S1","finite": "true"},
-    {"id": "S2","finite": "false"},
-    {"id": "S3","finite": "true"},
-    {"id": "S4","finite": "true"},
-    {"id": "S5","finite": "true"},
-    {"id": "S6","finite": "true"},
-    {"id": "S7","finite": "true"},
-    {"id": "S8","finite": "false"}
+    {"id": "S0","finite": "false","TokenType": "DEFAULT"},
+    {"id": "S1","finite": "true","TokenType": "NUMBER"},
+    {"id": "S2","finite": "false","TokenType": "COMMA"},
+    {"id": "S3","finite": "true","TokenType": "NUMBER"},
+    {"id": "S4","finite": "true","TokenType": "OP_PLUS"},
+    {"id": "S5","finite": "true","TokenType": "OP_MINUS"},
+    {"id": "S6","finite": "true","TokenType": "OP_MUL"},
+    {"id": "S7","finite": "true","TokenType": "OP_DIV"},
+    {"id": "S8","finite": "false","TokenType": "NUMBER"}
   ],
   "startId": "S0",
   "transitionsDefinition": [
