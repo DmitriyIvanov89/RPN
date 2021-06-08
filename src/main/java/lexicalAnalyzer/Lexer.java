@@ -8,11 +8,12 @@ public class Lexer {
     private DFA dfaLexer;
     private State currState;
     private Token currToken;
-    private String value;
+    private String value ="";
     private int position;
 
     public Lexer(String expr, DFA dfaLexer) {
         this.expr = expr;
+        this.dfaLexer = dfaLexer;
         this.currState = dfaLexer.getStartState();
     }
 
