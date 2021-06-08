@@ -38,7 +38,6 @@ public class Lexer {
                     currToken = new Token(valueToken, TokenType.valueOf(currState.getType()));
                 }
             }
-
         }
         return currToken;
     }
