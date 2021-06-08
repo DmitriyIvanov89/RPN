@@ -8,7 +8,7 @@ public class Lexer {
     private DFA dfaLexer;
     private State currState;
     private Token currToken;
-    private String value ="";
+    private String value = "";
     private int position;
 
     public Lexer(String expr, DFA dfaLexer) {
@@ -28,6 +28,7 @@ public class Lexer {
                     break;
                 } else {
                     currToken = new Token(value, TokenType.valueOf(currState.getType()));
+                    System.out.println(currState);
                 }
             }
         }
