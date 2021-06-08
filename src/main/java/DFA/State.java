@@ -40,6 +40,14 @@ public class State {
         return transition.get(symbol);
     }
 
+    public boolean hasTransition(Character symbol) {
+        if (this.transition.get(symbol) != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         return String.format("State: %s, type: %s", id, type);

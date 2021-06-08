@@ -27,9 +27,18 @@ public class Lexer {
 
     public Token getNextToken() {
         while (position < expr.length()) {
-            currState = currState.getTransition(expr.charAt(position));
-            valueToken += expr.charAt(position);
-            position++;
+            if (currState.hasTransition(expr.charAt(position))) {
+                currState = currState.getTransition(expr.charAt(position));
+                valueToken += expr.charAt(position);
+                position++;
+            } else {
+                if (!currState.isFinite()) {
+                    System.out.println("Fuck!");
+                } else {
+                    currToken = new Token(valueToken, TokenType.valueOf(currState.getType()));
+                }
+            }
+
         }
         return currToken;
     }
