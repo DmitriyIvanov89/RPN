@@ -2,9 +2,14 @@ package lexicalAnalyzer;
 
 import DFA.*;
 
+import java.io.IOException;
+
 public class Lexer {
 
+    private final static String CONFIG_PATH = "d:\\my\\RPE_repo\\src\\main\\resources\\dfaConfig.json";
+    //private final static String CONFIG_PATH = "e:\\IT\\JAVA\\my_project\\rpn_repo\\RPE\\src\\main\\resources\\dfaConfig.json";
     private final String expr;
+<<<<<<< HEAD
 <<<<<<< HEAD
     private State currState;
     private Token currentToken;
@@ -37,32 +42,43 @@ public class Lexer {
         return currentToken;
 =======
     private DFA dfa;
+=======
+    private int position;
+>>>>>>> 3674e06d7b963cd7fd66ed8648a598ef27c9f38b
     private State currState;
     private Token currToken;
-    private String value;
-    private int position;
+    private String valueToken;
 
-    public Lexer(String expr, DFA dfa) {
+    public Lexer(String expr) throws IOException {
         this.expr = expr;
+        DFAConfigReader reader = new DFAConfigReader(CONFIG_PATH);
+        DFAConfig config = reader.readConfigJson();
+        DFA dfa = new DFA(config);
         this.currState = dfa.getStartState();
+        this.valueToken = "";
+        this.position = 0;
     }
 
     public Token getNextToken() {
-        for (int i = 0; i < expr.length(); i++) {
-            if (currState.hasTransition(expr.charAt(i))) {
-                currState = currState.getTransition(expr.charAt(i));
-                value += expr.charAt(i);
+        while (position < expr.length()) {
+            if (currState.hasTransition(expr.charAt(position))) {
+                currState = currState.getTransition(expr.charAt(position));
+                valueToken += expr.charAt(position);
+                position++;
             } else {
                 if (!currState.isFinite()) {
-                    System.out.println("Wrong expression!");
-                    break;
+                    System.out.println("Fuck");
                 } else {
-                    currToken = new Token(value, currState.getType());
+                    return new Token(valueToken, TokenType.valueOf(currState.getType()));
                 }
             }
         }
+<<<<<<< HEAD
         return currToken;
 >>>>>>> 63e5c70e6a1c6318dd5f012522c82e18b20f514d
+=======
+        return null;
+>>>>>>> 3674e06d7b963cd7fd66ed8648a598ef27c9f38b
     }
 
     public Token lookAHead() {
