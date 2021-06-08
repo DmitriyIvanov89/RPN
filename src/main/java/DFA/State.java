@@ -1,6 +1,5 @@
 package DFA;
 
-import lexicalAnalyzer.Token;
 import lexicalAnalyzer.TokenType;
 
 import java.util.HashMap;
@@ -10,13 +9,12 @@ public class State {
 
     private final String id;
     private final boolean finite;
-    private final TokenType type;
+    private String type;
     private final Map<Character, State> transition;
 
     public State(String id, boolean finite) {
         this.id = id;
         this.finite = finite;
-        this.type = getType();
         this.transition = new HashMap<>();
     }
 
@@ -28,7 +26,7 @@ public class State {
         return finite;
     }
 
-    public TokenType getType() {
+    public String getType() {
         return type;
     }
 

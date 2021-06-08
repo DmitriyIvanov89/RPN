@@ -5,15 +5,15 @@ import DFA.*;
 public class Lexer {
 
     private final String expr;
-    private DFA dfa;
+    private DFA dfaLexer;
     private State currState;
     private Token currToken;
     private String value;
     private int position;
 
-    public Lexer(String expr, DFA dfa) {
+    public Lexer(String expr, DFA dfaLexer) {
         this.expr = expr;
-        this.currState = dfa.getStartState();
+        this.currState = dfaLexer.getStartState();
     }
 
     public Token getNextToken() {
