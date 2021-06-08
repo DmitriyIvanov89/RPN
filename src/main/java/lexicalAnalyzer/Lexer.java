@@ -2,37 +2,32 @@ package lexicalAnalyzer;
 
 import DFA.*;
 
+import java.io.IOException;
+
 public class Lexer {
 
+    private final static String CONFIG_PATH = "d:\\my\\RPE_repo\\src\\main\\resources\\dfaConfig.json";
+    //private final static String CONFIG_PATH = "e:\\IT\\JAVA\\my_project\\rpn_repo\\RPE\\src\\main\\resources\\dfaConfig.json";
     private final String expr;
-    private DFA dfaLexer;
-    private State currState;
+    private final int position;
+    private final State currState;
     private Token currToken;
-    private String value = "";
-    private int position;
+    private final String valueToken;
 
-    public Lexer(String expr, DFA dfaLexer) {
+    public Lexer(String expr) throws IOException {
         this.expr = expr;
-        this.dfaLexer = dfaLexer;
-        this.currState = dfaLexer.getStartState();
+        DFAConfigReader reader = new DFAConfigReader(CONFIG_PATH);
+        DFAConfig config = reader.readConfigJson();
+        DFA dfa = new DFA(config);
+        this.currState = dfa.getStartState();
+        this.valueToken = "";
+        this.position = 0;
     }
 
     public Token getNextToken() {
-        for (int i = 0; i < expr.length(); i++) {
-            if (currState.hasTransition(expr.charAt(i))) {
-                currState = currState.getTransition(expr.charAt(i));
-                value += expr.charAt(i);
-            } else {
-                if (!currState.isFinite()) {
-                    System.out.println("Wrong expression!");
-                    break;
-                } else {
-                    currToken = new Token(value, TokenType.valueOf(currState.getType()));
-                    System.out.println(currState);
-                }
-            }
+        while (position < expr.length()) {
+
         }
-        return currToken;
     }
 
     public Token lookAHead() {

@@ -1,7 +1,5 @@
 package DFA;
 
-import lexicalAnalyzer.TokenType;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,10 +40,8 @@ public class State {
         return transition.get(symbol);
     }
 
-    public boolean hasTransition(Character symbol) {
-        if (this.transition.get(symbol) == null) {
-            return false;
-        }
-        return true;
+    @Override
+    public String toString() {
+        return String.format("State: %s, type: %s", id, type);
     }
 }
