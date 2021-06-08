@@ -30,6 +30,10 @@ public class State {
         return type;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public void addTransition(Character symbol, State nextState) {
         this.transition.put(symbol, nextState);
     }

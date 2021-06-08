@@ -26,7 +26,7 @@ public class Lexer {
                     System.out.println("Wrong expression!");
                     break;
                 } else {
-                    currToken = new Token(value, currState.getType());
+                    currToken = new Token(value, TokenType.valueOf(currState.getType()));
                 }
             }
         }

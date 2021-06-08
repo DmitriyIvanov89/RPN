@@ -14,6 +14,7 @@ public class DFA {
 
         for (DFAConfig.DFAState state : config.getStateDefinition()) {
             dfa.put(state.getId(), new State(state.getId(), state.isFinite()));
+            dfa.get(state.getId()).setType(state.getType());
         }
 
         for (DFAConfig.DFATransition transit : config.getTransitionsDefinition()) {
