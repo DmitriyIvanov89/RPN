@@ -19,7 +19,7 @@ public class DFA {
         }
 
         for (DFAConfig.DFAState state : config.getStateDefinition()) {
-            
+            // TokenType for each State!!!!
         }
 
         for (DFAConfig.DFATransition transit : config.getTransitionsDefinition()) {
