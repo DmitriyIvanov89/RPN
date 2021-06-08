@@ -1,6 +1,7 @@
 package lexicalAnalyzer;
 
 import DFA.*;
+
 import java.io.IOException;
 
 public class Lexer {
@@ -29,8 +30,18 @@ public class Lexer {
                 currState = currState.getTransition(expr.charAt(position));
                 valueToken += expr.charAt(position);
                 position++;
+            } else {
+                if (!currState.isFinite()) {
+                    System.out.println("Fuck");
+                } else {
+                    return new Token(valueToken, TokenType.valueOf(currState.getType()));
+                }
             }
         }
+        return null;
+    }
+
+    public Token lookAHead() {
         return null;
     }
 }
