@@ -10,7 +10,6 @@ public class Lexer {
     private final static String CONFIG_PATH = "e:\\IT\\JAVA\\my_project\\rpn_repo\\RPN\\src\\main\\resources\\dfaConfig.json";
     private final String expr;
     private int position;
-    private int count;
     private State currState;
     private Token currToken;
     private String valueToken;
@@ -23,7 +22,6 @@ public class Lexer {
         this.currState = dfa.getStartState();
         this.valueToken = "";
         this.position = 0;
-        this.count = 0;
     }
 
     public Token getNextToken() {
