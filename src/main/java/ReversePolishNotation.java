@@ -8,6 +8,7 @@ public class ReversePolishNotation {
         String input = "22+2";
         Lexer lexer = new Lexer(input);
         System.out.println(lexer.getNextToken());
+        System.out.println(lexer.getNextToken());
 
     }
 }
