@@ -25,7 +25,7 @@ public class Lexer {
     }
 
     public Token getNextToken() {
-        for (int i = 0; position < expr.length(); position++) {
+        for (int i = position; position < expr.length(); position++) {
             if (currState.hasTransition(expr.charAt(position))) {
                 currState = currState.getTransition(expr.charAt(position));
                 valueToken += expr.charAt(position);
