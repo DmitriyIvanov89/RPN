@@ -35,7 +35,7 @@ public class DFA {
         return currState.isFinite();
     }
 
-    public State greedyDetour() {
+    public State greedyDetour(String input) {
         return null;
     }
 

@@ -41,11 +41,10 @@ public class State {
     }
 
     public boolean hasTransition(Character symbol) {
-        if (this.transition.get(symbol) != null) {
-            return true;
-        } else {
+        if (this.transition.get(symbol) == null) {
             return false;
         }
+        return true;
     }
 
     @Override
