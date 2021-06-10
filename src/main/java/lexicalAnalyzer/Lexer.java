@@ -9,6 +9,7 @@ public class Lexer {
     private final static String CONFIG_PATH = "d:\\my\\RPE_repo\\src\\main\\resources\\dfaConfig.json";
     //private final static String CONFIG_PATH = "e:\\IT\\JAVA\\my_project\\rpn_repo\\RPE\\src\\main\\resources\\dfaConfig.json";
     private final String expr;
+    private final DFA dfa;
     private int position;
     private State currState;
     private Token currToken;
@@ -18,14 +19,20 @@ public class Lexer {
         this.expr = expr;
         DFAConfigReader reader = new DFAConfigReader(CONFIG_PATH);
         DFAConfig config = reader.readConfigJson();
-        DFA dfa = new DFA(config);
+        dfa = new DFA(config);
         this.currState = dfa.getStartState();
         this.valueToken = "";
         this.position = 0;
     }
 
     public Token getNextToken() {
-        return null;
+        if (!dfa.validate(expr)) {
+            System.out.println("Wrong input expression");
+        } else {
+            for (int i = position; position < expr.length(); position++) {
+                
+            }
+        }
     }
 
     public Token lookAHead() {
