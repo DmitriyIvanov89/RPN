@@ -29,7 +29,7 @@ public class Lexer {
         if (!dfa.validate(expr)) {
             System.out.println("Wrong input expression");
         } else {
-            
+
         }
         return currToken;
     }
