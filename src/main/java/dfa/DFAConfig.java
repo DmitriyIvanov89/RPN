@@ -1,4 +1,4 @@
-package DFA;
+package dfa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class DFAConfig {
 
         private final String id;
         private final boolean finite;
-        private String TokenType;
+        private String name;
 
         public DFAState(String id, boolean finite) {
             this.id = id;
@@ -71,8 +71,8 @@ public class DFAConfig {
             return finite;
         }
 
-        public String getType() {
-            return TokenType;
+        public String getName() {
+            return name;
         }
     }
 }
