@@ -29,10 +29,9 @@ public class Lexer {
         if (!dfa.validate(expr)) {
             System.out.println("Wrong input expression");
         } else {
-            for (int i = position; position < expr.length(); position++) {
-                
-            }
+            
         }
+        return currToken;
     }
 
     public Token lookAHead() {
