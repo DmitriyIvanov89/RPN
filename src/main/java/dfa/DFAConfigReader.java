@@ -1,4 +1,4 @@
-package DFA;
+package dfa;
 
 import com.google.gson.Gson;
 import java.io.*;

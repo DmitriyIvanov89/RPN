@@ -1,6 +1,6 @@
-package lexicalAnalyzer;
+package lexer;
 
-import DFA.*;
+import dfa.*;
 
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;

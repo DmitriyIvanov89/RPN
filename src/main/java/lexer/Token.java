@@ -1,4 +1,4 @@
-package lexicalAnalyzer;
+package lexer;
 
 public class Token {
 
