@@ -1,14 +1,14 @@
 {
   "stateDefinition" : [
-    {"id": "S0","finite": "false","TokenType": "DEFAULT"},
-    {"id": "S1","finite": "true","TokenType": "NUMBER"},
-    {"id": "S2","finite": "false","TokenType": "DOT"},
-    {"id": "S3","finite": "true","TokenType": "NUMBER"},
-    {"id": "S4","finite": "true","TokenType": "OP_PLUS"},
-    {"id": "S5","finite": "true","TokenType": "OP_MINUS"},
-    {"id": "S6","finite": "true","TokenType": "OP_MUL"},
-    {"id": "S7","finite": "true","TokenType": "OP_DIV"},
-    {"id": "S8","finite": "false","TokenType": "NUMBER"}
+    {"id": "S0","finite": "false","name": "DEFAULT"},
+    {"id": "S1","finite": "true","name": "NUMBER"},
+    {"id": "S2","finite": "false","name": "DOT"},
+    {"id": "S3","finite": "true","name": "NUMBER"},
+    {"id": "S4","finite": "true","name": "OP_PLUS"},
+    {"id": "S5","finite": "true","name": "OP_MINUS"},
+    {"id": "S6","finite": "true","name": "OP_MUL"},
+    {"id": "S7","finite": "true","name": "OP_DIV"},
+    {"id": "S8","finite": "false","name": "NUMBER"}
   ],
   "startId": "S0",
   "transitionsDefinition": [
