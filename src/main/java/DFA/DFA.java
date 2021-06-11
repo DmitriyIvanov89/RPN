@@ -10,18 +10,14 @@ public class DFA {
 
     public DFA(DFAConfig config) {
         Map<String, State> dfa = new HashMap<>();
-
         for (DFAConfig.DFAState state : config.getStateDefinition()) {
             dfa.put(state.getId(), new State(state.getId(), state.isFinite()));
-            dfa.get(state.getId()).setType(state.getType());
+            dfa.get(state.getId()).setName(state.getType());
         }
-
         for (DFAConfig.DFATransition transit : config.getTransitionsDefinition()) {
             dfa.get(transit.getFrom()).addTransition(transit.getSymbol(), dfa.get(transit.getTo()));
         }
-
         this.startState = dfa.get(config.getStartId());
-
     }
 
     public boolean validate(String input) {
@@ -36,13 +32,8 @@ public class DFA {
     }
 
     public State greedyDetour(String input) {
-        currState = startState;
-        for (int i = 0; i < input.length(); i++) {
-            if (currState.hasTransition(input.charAt(i))) {
-                currState = currState.getTransition(input.charAt(i));
-            }
-        }
-        return currState;
+        //TODO
+        return null;
     }
 
     public State getStartState() {

@@ -7,7 +7,7 @@ public class State {
 
     private final String id;
     private final boolean finite;
-    private String type;
+    private String name;
     private final Map<Character, State> transition;
 
     public State(String id, boolean finite) {
@@ -24,12 +24,12 @@ public class State {
         return finite;
     }
 
-    public String getType() {
-        return type;
+    public String getName() {
+        return name;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void addTransition(Character symbol, State nextState) {
@@ -49,6 +49,6 @@ public class State {
 
     @Override
     public String toString() {
-        return String.format("State: %s, type: %s", id, type);
+        return String.format("State: %s, type: %s", id, name);
     }
 }
