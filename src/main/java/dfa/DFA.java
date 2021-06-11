@@ -12,7 +12,7 @@ public class DFA {
         Map<String, State> dfa = new HashMap<>();
         for (DFAConfig.DFAState state : config.getStateDefinition()) {
             dfa.put(state.getId(), new State(state.getId(), state.isFinite()));
-            dfa.get(state.getId()).setName(state.getType());
+            dfa.get(state.getId()).setName(state.getName());
         }
         for (DFAConfig.DFATransition transit : config.getTransitionsDefinition()) {
             dfa.get(transit.getFrom()).addTransition(transit.getSymbol(), dfa.get(transit.getTo()));

@@ -1,7 +1,6 @@
 package lexer;
 
 import dfa.*;
-
 import java.text.CharacterIterator;
 import java.text.StringCharacterIterator;
 
