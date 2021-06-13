@@ -24,9 +24,15 @@ public class DFA {
         return startState;
     }
 
-    public boolean checkString() {
-        //TODO
-        return false;
+    public boolean checkString(CharacterIterator iterator) {
+        State currState = startState;
+        while (iterator.getIndex() < iterator.getEndIndex()) {
+            currState = currState.getTransition(iterator.current());
+            if (currState == null) {
+                return false;
+            }
+        }
+        return currState.isFinite();
     }
 
     public TraversalResult greedyTraversal(CharacterIterator iterator) {
