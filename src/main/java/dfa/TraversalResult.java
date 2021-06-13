@@ -2,8 +2,8 @@ package dfa;
 
 public class TraversalResult {
 
-    private State state;
-    private String trace;
+    private final State state;
+    private final String trace;
 
     public TraversalResult(State state, String trace) {
         this.state = state;
