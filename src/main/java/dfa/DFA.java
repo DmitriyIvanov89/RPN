@@ -24,10 +24,10 @@ public class DFA {
         return startState;
     }
 
-    public boolean checkString(CharacterIterator iterator) {
+    public boolean checkString(String expr) {
         State currState = startState;
-        while (iterator.getIndex() < iterator.getEndIndex()) {
-            currState = currState.getTransition(iterator.current());
+        for (int i = 0; i < expr.length(); i++) {
+            currState = currState.getTransition(expr.charAt(i));
             if (currState == null) {
                 return false;
             }

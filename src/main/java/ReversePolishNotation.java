@@ -19,8 +19,10 @@ public class ReversePolishNotation {
         String input = "1.5*0.23-55/101";
 
         Lexer lexer = new Lexer(input, dfa);
-        while (lexer.lookAhead().getType() != TokenType.UNDEFINED && lexer.lookAhead().getType() != TokenType.EOF) {
-            System.out.println(lexer.getNextToken());
-        }
+//        while (lexer.lookAhead().getType() != TokenType.UNDEFINED && lexer.lookAhead().getType() != TokenType.EOF) {
+//            System.out.println(lexer.getNextToken());
+//        }
+        System.out.println(dfa.checkString(input));
+
     }
 }
