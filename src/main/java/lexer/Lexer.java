@@ -7,8 +7,8 @@ import java.text.StringCharacterIterator;
 
 public class Lexer {
 
-    private DFA dfa;
-    private CharacterIterator iterator;
+    private final DFA dfa;
+    private final CharacterIterator iterator;
 
     public Lexer(String expr, DFA dfa) {
         this.iterator = new StringCharacterIterator(expr);
