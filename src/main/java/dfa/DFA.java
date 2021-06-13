@@ -29,7 +29,7 @@ public class DFA {
         for (int i = 0; i < expr.length(); i++) {
             currState = currState.getTransition(expr.charAt(i));
             if (currState == null) {
-                return false;
+                currState = startState;
             }
         }
         return currState.isFinite();
