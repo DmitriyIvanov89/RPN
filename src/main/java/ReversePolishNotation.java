@@ -2,7 +2,6 @@ import dfa.DFA;
 import dfa.DFAConfig;
 import dfa.DFAConfigReader;
 import lexer.Lexer;
-import lexer.TokenType;
 import reversepolishcalculator.ExpressionTranslator;
 
 import java.io.IOException;
