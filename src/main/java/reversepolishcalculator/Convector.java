@@ -27,7 +27,7 @@ public class Convector {
         for (Token element : tokensInt) {
             if (element.getType() == TokenType.NUMBER) {
                 tokensOut.add(element);
-            } else {
+            } else if (element.getType() == ){
                 stack.push(element);
             }
         }
