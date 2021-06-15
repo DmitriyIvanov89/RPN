@@ -53,5 +53,5 @@ public class DFA {
 
         return new TraversalResult(currState, tracer.toString());
     }
-    
+
 }
