@@ -7,13 +7,12 @@ import java.text.StringCharacterIterator;
 
 public class Lexer {
 
-    private final DFA dfa;
     private final CharacterIterator iterator;
+    private final DFA dfa;
 
     public Lexer(String expr, DFA dfa) {
         this.iterator = new StringCharacterIterator(expr);
         this.dfa = dfa;
-
     }
 
     public Token lookAhead() {
