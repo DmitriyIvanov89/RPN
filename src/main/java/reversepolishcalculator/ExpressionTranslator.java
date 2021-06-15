@@ -20,7 +20,7 @@ public class ExpressionTranslator {
         this.lexer = lexer;
     }
 
-    public List<Token> translateExpression(String expr) {
+    public List<Token> convertExpression(String expr) {
         for (int i = 0; i < expr.length(); i++) {
             tokensInt.add(lexer.getNextToken());
         }
