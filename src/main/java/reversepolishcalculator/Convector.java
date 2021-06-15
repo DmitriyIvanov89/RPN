@@ -5,6 +5,7 @@ import lexer.Token;
 import lexer.TokenType;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
@@ -25,14 +26,9 @@ public class Convector {
             tokensIn.add(lexer.getNextToken());
         }
         for (Token element : tokensIn) {
-            if (element.getType() == TokenType.NUMBER) {
-                tokensOut.add(element);
-            } else {
-                while (!stack.empty()) {
 
-                }
-            }
         }
+
         return tokensOut;
     }
 
