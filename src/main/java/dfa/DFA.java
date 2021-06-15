@@ -20,20 +20,6 @@ public class DFA {
         this.startState = dfa.get(config.getStartId());
     }
 
-    public boolean validate(String input) {
-        currState = startState;
-        for (int i = 0; i < input.length(); i++) {
-            currState = currState.getTransition(input.charAt(i));
-            if (currState == null) {
-                return false;
-            }
-        }
-        return currState.isFinite();
-    }
-
-    public State greedyDetour(String input) {
-        //TODO
-        return null;
 
     public boolean checkString(String expr) {
         State currState = startState;
@@ -49,4 +35,5 @@ public class DFA {
     public State getStartState() {
         return startState;
     }
+
 }
