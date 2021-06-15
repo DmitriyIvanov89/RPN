@@ -8,15 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class ExpressionTranslator {
+public class Convector {
 
     private final Lexer lexer;
     private String expr;
     private final List<Token> tokensInt = new ArrayList<>();
     private final List<Token> tokensOut = new ArrayList<>();
-    private final Stack<Token> stackOperation = new Stack<>();
+    private final Stack<Token> stack = new Stack<>();
 
-    public ExpressionTranslator(Lexer lexer) {
+    public Convector(Lexer lexer) {
         this.lexer = lexer;
     }
 
@@ -26,10 +26,12 @@ public class ExpressionTranslator {
         }
         for (Token element : tokensInt) {
             if (element.getType() == TokenType.NUMBER) {
-
+                tokensOut.add(element);
+            } else {
+                stack.push(element);
             }
         }
-        return null;
+        return tokensOut;
     }
 
 }

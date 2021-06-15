@@ -2,7 +2,7 @@ import dfa.DFA;
 import dfa.DFAConfig;
 import dfa.DFAConfigReader;
 import lexer.Lexer;
-import reversepolishcalculator.ExpressionTranslator;
+import reversepolishcalculator.Convector;
 
 import java.io.IOException;
 
@@ -16,11 +16,12 @@ public class ReversePolishNotation {
         DFAConfigReader reader = new DFAConfigReader(CONFIG_PATH);
         DFAConfig config = reader.readConfigJson();
         DFA dfa = new DFA(config);
+
         String input = "1.5*0.23-55/101";
 
         Lexer lexer = new Lexer(input, dfa);
 
-        ExpressionTranslator expressionTranslator = new ExpressionTranslator(lexer);
+        Convector convector = new Convector(lexer);
 
 
     }
