@@ -5,7 +5,6 @@ import lexer.Token;
 import lexer.TokenType;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 
@@ -15,7 +14,8 @@ public class Convector {
     private String expr;
     private final List<Token> tokensIn = new ArrayList<>();
     private final List<Token> tokensOut = new ArrayList<>();
-    private final Stack<Token> stack = new Stack<>();
+    private final Stack<Token> stackOper = new Stack<>();
+    private final Stack<Token> stackOut = new Stack<>();
 
     public Convector(Lexer lexer) {
         this.lexer = lexer;
@@ -29,15 +29,15 @@ public class Convector {
             if (element.getType() == TokenType.NUMBER) {
                 tokensOut.add(element);
             } else {
-                stack.push(element);
-                if (getPriority(element) < getPriority(stack.peek())) {
-                    tokensOut.add(stack.pop());
-                    stack.push(element);
-                } else if (getPriority(element) > getPriority(stack.peek())) {
-                    stack.push(element);
+                stackOper.push(element);
+                if (getPriority(stackOper.peek()) > getPriority(element)) {
+                    tokensOut.add(stackOper.pop());
+                    stackOut.push(element);
+                } else if (getPriority(stackOper.peek()) < getPriority(element)) {
+                    stackOper.push(element);
                 } else {
-                    tokensOut.add(stack.pop());
-                    stack.push(element);
+                    tokensOut.add(stackOper.pop());
+                    stackOut.push(element);
                 }
             }
         }
