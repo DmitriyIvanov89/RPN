@@ -2,8 +2,8 @@ package dfa;
 
 public class TraceResult {
 
-    private State state;
-    private String name;
+    private final State state;
+    private final String name;
 
     public TraceResult(State state, String name) {
         this.state = state;

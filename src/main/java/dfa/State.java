@@ -39,7 +39,7 @@ public class State {
     public State getTransition(Character symbol) {
         return transition.get(symbol);
     }
-    
+
     @Override
     public String toString() {
         return String.format("State: %s, type: %s", id, name);
