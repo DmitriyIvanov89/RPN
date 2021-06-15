@@ -40,6 +40,7 @@ public class State {
         return transition.get(symbol);
     }
 
+<<<<<<< HEAD:src/main/java/dfa/State.java
     public boolean hasTransition(Character symbol) {
         if (this.transition.get(symbol) == null) {
             return false;
@@ -47,6 +48,8 @@ public class State {
         return true;
     }
 
+=======
+>>>>>>> c1bb36dfe3fb6c7c0ba89c614133c07465da5382:src/main/java/DFA/State.java
     @Override
     public String toString() {
         return String.format("State: %s, type: %s", id, name);
