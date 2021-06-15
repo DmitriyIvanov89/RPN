@@ -34,6 +34,16 @@ public class DFA {
     public State greedyDetour(String input) {
         //TODO
         return null;
+
+    public boolean checkString(String expr) {
+        State currState = startState;
+        for (int i = 0; i < expr.length(); i++) {
+            currState = currState.getTransition(expr.charAt(i));
+            if (currState == null) {
+                currState = startState;
+            }
+        }
+        return currState.isFinite();
     }
 
     public State getStartState() {
