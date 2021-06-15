@@ -3,6 +3,7 @@ import dfa.DFAConfig;
 import dfa.DFAConfigReader;
 import lexer.Lexer;
 import lexer.TokenType;
+import reversepolishcalculator.ExpressionTranslator;
 
 import java.io.IOException;
 
@@ -19,8 +20,9 @@ public class ReversePolishNotation {
         String input = "1.5*0.23-55/101";
 
         Lexer lexer = new Lexer(input, dfa);
-        while (lexer.lookAhead().getType() != TokenType.UNDEFINED && lexer.lookAhead().getType() != TokenType.EOF) {
-            System.out.println(lexer.getNextToken());
-        }
+
+        ExpressionTranslator expressionTranslator = new ExpressionTranslator(lexer);
+
+
     }
 }
