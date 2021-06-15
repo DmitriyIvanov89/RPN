@@ -26,7 +26,20 @@ public class Convector {
             tokensIn.add(lexer.getNextToken());
         }
         for (Token element : tokensIn) {
-
+            if (element.getType() == TokenType.NUMBER) {
+                tokensOut.add(element);
+            } else {
+                stack.push(element);
+                if (getPriority(element) < getPriority(stack.peek())) {
+                    tokensOut.add(stack.pop());
+                    stack.push(element);
+                } else if (getPriority(element) > getPriority(stack.peek())) {
+                    stack.push(element);
+                } else {
+                    tokensOut.add(stack.pop());
+                    stack.push(element);
+                }
+            }
         }
 
         return tokensOut;
