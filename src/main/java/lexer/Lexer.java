@@ -24,9 +24,9 @@ public class Lexer {
     }
 
     private Token getToken(boolean moveCurrentIndex) {
-//        if (iterator.getIndex() >= iterator.getEndIndex()) {
-//            return new Token("", TokenType.EOF);
-//        }
+        if (iterator.getIndex() >= iterator.getEndIndex()) {
+            return new Token("", TokenType.EOF);
+        }
         int currentIndex = iterator.getIndex();
         TraversalResult traversalResult = dfa.greedyTraversal(iterator);
         if (!moveCurrentIndex) {
