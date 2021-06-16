@@ -15,7 +15,7 @@ public class Convector {
     private final List<Token> tokensIn = new ArrayList<>();
     private final List<Token> tokensOut = new ArrayList<>();
     private final Stack<Token> stackOper = new Stack<>();
-    private final Stack<Token> stackOut = new Stack<>();
+    //private final Stack<Token> stackOut = new Stack<>();
 
     public Convector(Lexer lexer) {
         this.lexer = lexer;
@@ -29,17 +29,23 @@ public class Convector {
             if (element.getType() == TokenType.NUMBER) {
                 tokensOut.add(element);
             } else {
-                stackOper.push(element);
-                if (getPriority(stackOper.peek()) > getPriority(element)) {
-                    tokensOut.add(stackOper.pop());
-                    stackOut.push(element);
-                } else if (getPriority(stackOper.peek()) < getPriority(element)) {
+                if (stackOper.empty()) {
                     stackOper.push(element);
                 } else {
-                    tokensOut.add(stackOper.pop());
-                    stackOut.push(element);
+                    if (getPriority(element) < getPriority(stackOper.peek())) {
+                        tokensOut.add(stackOper.pop());
+                        stackOper.push(element);
+                    } else if (getPriority(element) > getPriority(stackOper.peek())) {
+                        stackOper.push(element);
+                    } else {
+                        tokensOut.add(stackOper.pop());
+                        stackOper.push(element);
+                    }
                 }
             }
+        }
+        while (!stackOper.empty()) {
+            tokensOut.add(stackOper.pop());
         }
 
         return tokensOut;
