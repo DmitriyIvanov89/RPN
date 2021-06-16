@@ -1,6 +1,7 @@
 package reversepolishcalculator;
 
 import lexer.Token;
+import lexer.TokenType;
 
 
 import java.util.ArrayList;
@@ -11,10 +12,12 @@ public class Calculator {
 
     private Stack<Double> stack = new Stack<>();
     private final List<Token> tokens = new ArrayList<>();
+    private String expression;
+    private Convector convector;
 
     public double calculate(List<Token> tokens) {
         for (Token element : tokens) {
-            if (isNumber(element)) {
+            if (element.getType() == TokenType.NUMBER) {
                 stack.push(Double.parseDouble(element.getValue()));
             } else {
                 double operand1 = stack.pop();
@@ -39,16 +42,7 @@ public class Calculator {
         if (!stack.empty()) {
             System.out.println("Wrong expression");
         }
+
         return stack.pop();
     }
-
-    private boolean isNumber(Token token) {
-        try {
-            Double.parseDouble(token.getValue());
-            return true;
-        } catch (NumberFormatException ex) {
-            return false;
-        }
-    }
-
 }
