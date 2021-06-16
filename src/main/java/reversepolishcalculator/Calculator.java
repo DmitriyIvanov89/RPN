@@ -2,6 +2,7 @@ package reversepolishcalculator;
 
 import lexer.Token;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -18,6 +19,7 @@ public class Calculator {
             } else {
                 double operand1 = stack.pop();
                 double operand2 = stack.pop();
+
                 switch (element.getType()) {
                     case OP_PLUS:
                         stack.push(operand1 + operand2);
