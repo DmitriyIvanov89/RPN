@@ -15,7 +15,6 @@ public class Convector {
     private final List<Token> tokensIn = new ArrayList<>();
     private final List<Token> tokensOut = new ArrayList<>();
     private final Stack<Token> stackOperations = new Stack<>();
-    //private final Stack<Token> stackOut = new Stack<>();
 
     public Convector(Lexer lexer) {
         this.lexer = lexer;
