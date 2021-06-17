@@ -31,6 +31,5 @@ public class ReversePolishNotation {
         Calculator calculator = new Calculator();
         calculator.calculate(convector.convertExpression(input));
 
-
     }
 }

@@ -1,6 +1,6 @@
 package reversepolishcalculator;
 
-import lexer.Token;
+import lexer.*;
 
 
 import java.util.ArrayList;
@@ -33,6 +33,8 @@ public class Calculator {
                     case OP_DIV:
                         stack.push(operand2 / operand1);
                         break;
+                    default:
+                        continue;
                 }
             }
         }
