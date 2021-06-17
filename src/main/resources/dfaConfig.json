@@ -8,8 +8,7 @@
     {"id": "S5","finite": "true","name": "OP_MINUS"},
     {"id": "S6","finite": "true","name": "OP_MUL"},
     {"id": "S7","finite": "true","name": "OP_DIV"},
-    {"id": "S8","finite": "false","name": "NUMBER"},
-    {"id": "S9","finite": "false","name": "DELIMITER"}
+    {"id": "S8","finite": "false","name": "NUMBER"}
   ],
   "startId": "S0",
   "transitionsDefinition": [

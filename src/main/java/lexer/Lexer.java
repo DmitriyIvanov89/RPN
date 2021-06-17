@@ -35,7 +35,7 @@ public class Lexer {
         if (traversalResult.getState().isFinite()) {
             return new Token(traversalResult.getTrace(), TokenType.valueOf(traversalResult.getState().getName()));
         } else {
-            throw new RuntimeException(String.format("Undefined type of token by symbol: %s", iterator.current()));
+            throw new RuntimeException(String.format("Undefined type of token by symbol: %s, position: %d", iterator.current(),iterator.getIndex()));
             //return new Token("", TokenType.UNDEFINED);
         }
     }

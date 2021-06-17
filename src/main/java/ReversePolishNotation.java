@@ -19,7 +19,7 @@ public class ReversePolishNotation {
         DFAConfig config = reader.readConfigJson();
         DFA dfa = new DFA(config);
 
-        String input = "5*2+10";
+        String input = "2+2-12*80";
 
         Lexer lexer = new Lexer(input, dfa);
 
