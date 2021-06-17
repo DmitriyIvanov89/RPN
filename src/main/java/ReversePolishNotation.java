@@ -22,11 +22,7 @@ public class ReversePolishNotation {
         String input = "5*2+10";
 
         Lexer lexer = new Lexer(input, dfa);
-
         Convector convector = new Convector(lexer);
-        for (Token token : convector.convertExpression(input)) {
-            System.out.println(token);
-        }
 
         Calculator calculator = new Calculator();
         System.out.println(calculator.calculate(convector.convertExpression(input)));
