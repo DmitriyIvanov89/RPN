@@ -8,7 +8,7 @@ import java.util.Stack;
 
 public class Calculator {
 
-    private Stack<Double> stack = new Stack<>();
+    private final Stack<Double> stack = new Stack<>();
     private final List<Token> tokens = new ArrayList<>();
 
     public double calculate(List<Token> tokens) {
