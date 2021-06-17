@@ -29,7 +29,6 @@ public class ReversePolishNotation {
         }
 
         Calculator calculator = new Calculator();
-        calculator.calculate(convector.convertExpression(input));
-
+        System.out.println(calculator.calculate(convector.convertExpression(input)));
     }
 }

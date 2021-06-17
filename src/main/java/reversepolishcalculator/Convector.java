@@ -12,17 +12,23 @@ public class Convector {
 
     private final Lexer lexer;
     private String expr;
-    private final List<Token> tokensIn = new ArrayList<>();
-    private final List<Token> tokensOut = new ArrayList<>();
-    private final Stack<Token> stackOperations = new Stack<>();
+    private final List<Token> tokensIn;
+    private final List<Token> tokensOut;
+    private final Stack<Token> stackOperations;
 
     public Convector(Lexer lexer) {
         this.lexer = lexer;
+        this.tokensIn = new ArrayList<>();
+        this.tokensOut = new ArrayList<>();
+        this.stackOperations = new Stack<>();
+
     }
 
     public List<Token> convertExpression(String expr) {
         for (int i = 0; i < expr.length(); i++) {
-            tokensIn.add(lexer.getNextToken());
+            if (lexer.lookAhead().getType() != TokenType.EOF) {
+                tokensIn.add(lexer.getNextToken());
+            }
         }
         for (Token element : tokensIn) {
             if (element.getType() == TokenType.NUMBER) {

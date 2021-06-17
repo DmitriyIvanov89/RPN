@@ -36,8 +36,6 @@ public class Calculator {
                     case OP_DIV:
                         stack.push(operand2 / operand1);
                         break;
-                    default:
-                        continue;
                 }
             }
         }
