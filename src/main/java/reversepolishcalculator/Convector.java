@@ -11,7 +11,6 @@ import java.util.Stack;
 public class Convector {
 
     private final Lexer lexer;
-    private String expr;
     private final List<Token> tokensIn;
     private final List<Token> tokensOut;
     private final Stack<Token> stackOperations;
@@ -66,5 +65,4 @@ public class Convector {
 
         return 0;
     }
-
 }

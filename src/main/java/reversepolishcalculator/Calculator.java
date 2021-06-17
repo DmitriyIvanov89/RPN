@@ -2,16 +2,24 @@ package reversepolishcalculator;
 
 import lexer.Token;
 import lexer.TokenType;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Stack;
 
 public class Calculator {
 
-    private final Stack<Double> stack = new Stack<>();
-    private final List<Token> tokens = new ArrayList<>();
+    private final Stack<Double> stack;
+    private final Convector convector;
+    private final String expression;
 
-    public double calculate(List<Token> tokens) {
+    public Calculator(Convector convector, String expression) {
+        this.convector = convector;
+        this.expression = expression;
+        this.stack = new Stack<>();
+    }
+
+    public double calculate() {
+        List<Token> tokens = convector.convertExpression(expression);
         for (Token element : tokens) {
             if (element.getType() == TokenType.NUMBER) {
                 stack.push(Double.parseDouble(element.getValue()));
