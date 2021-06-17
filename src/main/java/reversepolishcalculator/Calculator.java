@@ -39,9 +39,9 @@ public class Calculator {
                 }
             }
         }
-        if (!stack.empty()) {
-            System.out.println("Wrong expression");
-        }
+//        if (!stack.empty()) {
+//            System.out.println("Wrong expression");
+//        }
 
         return stack.pop();
     }
