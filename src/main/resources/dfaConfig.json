@@ -8,7 +8,8 @@
     {"id": "S5","finite": "true","name": "OP_MINUS"},
     {"id": "S6","finite": "true","name": "OP_MUL"},
     {"id": "S7","finite": "true","name": "OP_DIV"},
-    {"id": "S8","finite": "false","name": "NUMBER"}
+    {"id": "S8","finite": "false","name": "NUMBER"},
+    {"id": "S9","finite": "true","name": "DELIMITER"}
   ],
   "startId": "S0",
   "transitionsDefinition": [
@@ -63,6 +64,9 @@
     {"from": "S0","symbol": "/","to": "S7"},
 
     {"from": "S0","symbol": "0","to": "S8"},
-    {"from": "S8","symbol": ".","to": "S2"}
+    {"from": "S8","symbol": ".","to": "S2"},
+
+    {"from": "S0","symbol": " ","to": "S9"},
+    {"from": "S9","symbol": " ","to": "S9"}
   ]
 }
