@@ -9,6 +9,7 @@ public class Lexer {
 
     private final CharacterIterator iterator;
     private final DFA dfa;
+    public static final String DELIMITER = " ";
 
     public Lexer(String expr, DFA dfa) {
         this.iterator = new StringCharacterIterator(expr);
@@ -35,7 +36,7 @@ public class Lexer {
         if (traversalResult.getState().isFinite()) {
             return new Token(traversalResult.getTrace(), TokenType.valueOf(traversalResult.getState().getName()));
         } else {
-            throw new RuntimeException(String.format("Undefined type of token by symbol: %s, position: %d", iterator.current(),iterator.getIndex()));
+            throw new RuntimeException(String.format("Undefined type of token by symbol: %s, position: %d", iterator.current(), iterator.getIndex()));
             //return new Token("", TokenType.UNDEFINED);
         }
     }

@@ -24,8 +24,7 @@ public class ReversePolishNotation {
         Lexer lexer = new Lexer(input, dfa);
         Convector convector = new Convector(lexer);
 
-        Calculator calculator = new Calculator(convector,input);
-        System.out.println(calculator.calculate());
+        System.out.println(convector.convertExpression(input));
 
     }
 }

@@ -23,7 +23,7 @@ public class Convector {
 
     }
 
-    public List<Token> convertExpression(String expr) {
+        public List<Token> convertExpression(String expr) {
         for (int i = 0; i < expr.length(); i++) {
             if (lexer.lookAhead().getType() != TokenType.EOF) {
                 tokensIn.add(lexer.getNextToken());
