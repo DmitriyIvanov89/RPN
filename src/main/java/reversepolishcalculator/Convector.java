@@ -20,16 +20,18 @@ public class Convector {
         this.tokensIn = new ArrayList<>();
         this.tokensOut = new ArrayList<>();
         this.stackOperations = new Stack<>();
-
     }
 
-        public List<Token> convertExpression(String expr) {
+    public List<Token> convertExpression(String expr) {
         for (int i = 0; i < expr.length(); i++) {
             if (lexer.lookAhead().getType() != TokenType.EOF) {
                 tokensIn.add(lexer.getNextToken());
             }
         }
         for (Token element : tokensIn) {
+            if (element.getType() == TokenType.DELIMITER) {
+                continue;
+            }
             if (element.getType() == TokenType.NUMBER) {
                 tokensOut.add(element);
             } else {

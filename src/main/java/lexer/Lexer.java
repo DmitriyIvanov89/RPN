@@ -9,7 +9,6 @@ public class Lexer {
 
     private final CharacterIterator iterator;
     private final DFA dfa;
-    public static final String DELIMITER = " ";
 
     public Lexer(String expr, DFA dfa) {
         this.iterator = new StringCharacterIterator(expr);

@@ -19,13 +19,12 @@ public class ReversePolishNotation {
         DFAConfig config = reader.readConfigJson();
         DFA dfa = new DFA(config);
 
-        String input = "5*2+10";
+        String input = " 5 * 2 + 10 ";
 
         Lexer lexer = new Lexer(input, dfa);
         Convector convector = new Convector(lexer);
-
-        Calculator calculator = new Calculator(convector,input);
-        System.out.println(calculator.calculate());
+        //System.out.println(dfa.checkString(input));
+        System.out.println(convector.convertExpression(input));
 
     }
 }
