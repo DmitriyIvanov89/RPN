@@ -30,6 +30,7 @@ public class DFA {
             currState = currState.getTransition(expr.charAt(i));
             if (currState == null) {
                 currState = startState;
+                i--;
             }
         }
         return currState.isFinite();

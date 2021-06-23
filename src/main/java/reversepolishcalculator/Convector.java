@@ -22,7 +22,7 @@ public class Convector {
         this.stackOperations = new Stack<>();
     }
 
-    public List<Token> convertExpression(String expr) {
+    public List<Token> convertExpressionToRPN(String expr) {
         for (int i = 0; i < expr.length(); i++) {
             if (lexer.lookAhead().getType() != TokenType.EOF) {
                 tokensIn.add(lexer.getNextToken());

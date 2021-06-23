@@ -19,7 +19,7 @@ public class Calculator {
     }
 
     public double calculate() {
-        List<Token> tokens = convector.convertExpression(expression);
+        List<Token> tokens = convector.convertExpressionToRPN(expression);
         for (Token element : tokens) {
             if (element.getType() == TokenType.NUMBER) {
                 stack.push(Double.parseDouble(element.getValue()));

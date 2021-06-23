@@ -2,8 +2,6 @@ import dfa.DFA;
 import dfa.DFAConfig;
 import dfa.DFAConfigReader;
 import lexer.Lexer;
-import lexer.Token;
-import reversepolishcalculator.Calculator;
 import reversepolishcalculator.Convector;
 
 import java.io.IOException;
@@ -19,12 +17,12 @@ public class ReversePolishNotation {
         DFAConfig config = reader.readConfigJson();
         DFA dfa = new DFA(config);
 
-        String input = " 5 * 2 + 10 ";
+        String input = "5*2+10";
 
         Lexer lexer = new Lexer(input, dfa);
         Convector convector = new Convector(lexer);
-        //System.out.println(dfa.checkString(input));
-        System.out.println(convector.convertExpression(input));
+        System.out.println(dfa.checkString(input));
+        //System.out.println(convector.convertExpressionToRPN(input));
 
     }
 }
