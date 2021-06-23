@@ -25,15 +25,15 @@ public class DFA {
     }
 
     public boolean checkString(String expr) {
-        State currState = startState;
+        State curState = startState;
+
         for (int i = 0; i < expr.length(); i++) {
-            currState = currState.getTransition(expr.charAt(i));
-            if (currState == null) {
-                currState = startState;
-                i--;
+            curState = curState.getTransition(expr.charAt(i));
+            if (curState == null) {
+                return false;
             }
         }
-        return currState.isFinite();
+        return curState.isFinite();
     }
 
     public TraversalResult greedyTraversal(CharacterIterator iterator) {
