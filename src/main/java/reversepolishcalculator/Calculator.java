@@ -10,15 +10,14 @@ public class Calculator {
 
     private final Stack<Double> stack;
     private final Convector convector;
-    private final String expression;
+    private String expression;
 
-    public Calculator(Convector convector, String expression) {
+    public Calculator(Convector convector) {
         this.convector = convector;
-        this.expression = expression;
         this.stack = new Stack<>();
     }
 
-    public double calculate() {
+    public double calculate(String expression) {
         List<Token> tokens = convector.convertExpressionToRPN(expression);
         for (Token element : tokens) {
             if (element.getType() == TokenType.NUMBER) {
