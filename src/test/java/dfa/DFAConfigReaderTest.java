@@ -1,26 +1,28 @@
 package dfa;
 
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
-
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DFAConfigReaderTest {
 
-    private static final String configPath = "d:\\my\\RPE_repo\\src\\main\\resources\\dfaConfig.json";
-    private static DFAConfigReader testReader;
-    private static BufferedReader reader;
-    private static DFAConfig testConfig;
+    private DFAConfig testConfig;
 
-    @BeforeClass
-    public static void beforeClass() {
-        testReader = new DFAConfigReader(configPath);
+    @Before
+    public void beforeEach() {
+        List<DFAConfig.DFAState> testStateDefinition = new ArrayList<>();
+        List<DFAConfig.DFATransition> testTransitionsDefinition = new ArrayList<>();
+        String testStartId = "S0";
+        testConfig = new DFAConfig(testStateDefinition, testTransitionsDefinition, testStartId);
     }
 
     @Test
     public void readConfigJsonTest() throws IOException {
+        String configPath = "d:\\my\\RPE_repo\\src\\main\\resources\\dfaConfig.json";
+        DFAConfigReader testReader = new DFAConfigReader(configPath);
         Assert.assertEquals(testConfig, testReader.readConfigJson());
     }
 }

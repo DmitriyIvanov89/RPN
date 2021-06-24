@@ -2,6 +2,7 @@ package dfa;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DFAConfig {
 
@@ -25,6 +26,21 @@ public class DFAConfig {
 
     public String getStartId() {
         return startId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        DFAConfig dfaConfig = (DFAConfig) obj;
+        return stateDefinition == dfaConfig.stateDefinition &&
+                transitionsDefinition == dfaConfig.transitionsDefinition &&
+                Objects.equals(startId, dfaConfig.startId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(stateDefinition, transitionsDefinition, startId);
     }
 
     public class DFATransition {
