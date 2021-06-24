@@ -40,6 +40,7 @@ public class Calculator {
                 }
             }
         }
+
         return stack.pop();
     }
 }
