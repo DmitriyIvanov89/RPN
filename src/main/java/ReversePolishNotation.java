@@ -1,9 +1,8 @@
 import dfa.DFA;
 import dfa.DFAConfig;
 import dfa.DFAConfigReader;
-import jdk.internal.util.xml.impl.Input;
 import lexer.Lexer;
-import reversepolishcalculator.Calculator;
+import lexer.Token;
 import reversepolishcalculator.Convector;
 
 import java.io.IOException;
@@ -24,8 +23,9 @@ public class ReversePolishNotation {
         Lexer lexer = new Lexer(input, dfa);
         Convector convector = new Convector(lexer);
 
-        Calculator calculator = new Calculator(convector);
-        System.out.println(calculator.calculate(input));
+        for (Token token : convector.convertExpressionToRPN(input)) {
+            System.out.println(token);
+        }
 
     }
 }

@@ -11,41 +11,39 @@ import java.util.Stack;
 public class Convector {
 
     private final Lexer lexer;
-    private final List<Token> tokensIn;
-    private final List<Token> tokensOut;
-    private final Stack<Token> stackOperations;
 
     public Convector(Lexer lexer) {
         this.lexer = lexer;
-        this.tokensIn = new ArrayList<>();
-        this.tokensOut = new ArrayList<>();
-        this.stackOperations = new Stack<>();
     }
 
     public List<Token> convertExpressionToRPN(String expr) {
+        List<Token> tokensIn = new ArrayList<>();
+        List<Token> tokensOut = new ArrayList<>();
+        Stack<Token> stackOperations = new Stack<>();
+
         for (int i = 0; i < expr.length(); i++) {
             if (lexer.lookAhead().getType() != TokenType.EOF) {
                 tokensIn.add(lexer.getNextToken());
             }
         }
-        for (Token element : tokensIn) {
-            if (element.getType() == TokenType.DELIMITER) {
+        for (Token token : tokensIn) {
+            if (token.getType() == TokenType.DELIMITER) {
                 continue;
             }
-            if (element.getType() == TokenType.NUMBER) {
-                tokensOut.add(element);
+            if (token.getType() == TokenType.NUMBER) {
+                tokensOut.add(token);
             } else {
                 if (stackOperations.empty()) {
-                    stackOperations.push(element);
+                    stackOperations.push(token);
                 } else {
-                    if (getPriority(element) < getPriority(stackOperations.peek())) {
+                    if (getPriority(token) < getPriority(stackOperations.peek())) {
                         tokensOut.add(stackOperations.pop());
-                        stackOperations.push(element);
-                    } else if (getPriority(element) > getPriority(stackOperations.peek())) {
-                        stackOperations.push(element);
+                        stackOperations.push(token);
+                    } else if (getPriority(token) > getPriority(stackOperations.peek())) {
+                        stackOperations.push(token);
                     } else {
                         tokensOut.add(stackOperations.pop());
-                        stackOperations.push(element);
+                        stackOperations.push(token);
                     }
                 }
             }
@@ -53,11 +51,10 @@ public class Convector {
         while (!stackOperations.empty()) {
             tokensOut.add(stackOperations.pop());
         }
-
         return tokensOut;
     }
 
-    public int getPriority(Token token) {
+    private int getPriority(Token token) {
         if (token.getType() == TokenType.OP_MUL || token.getType() == TokenType.OP_DIV) {
             return 2;
         }
