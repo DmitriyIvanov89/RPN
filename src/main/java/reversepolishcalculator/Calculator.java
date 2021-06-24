@@ -8,25 +8,23 @@ import java.util.Stack;
 
 public class Calculator {
 
-    private final Stack<Double> stack;
     private final Convector convector;
-    private String expression;
 
     public Calculator(Convector convector) {
         this.convector = convector;
-        this.stack = new Stack<>();
     }
 
     public double calculate(String expression) {
+        Stack<Double> stack = new Stack<>();
         List<Token> tokens = convector.convertExpressionToRPN(expression);
-        for (Token element : tokens) {
-            if (element.getType() == TokenType.NUMBER) {
-                stack.push(Double.parseDouble(element.getValue()));
+        for (Token token : tokens) {
+            if (token.getType() == TokenType.NUMBER) {
+                stack.push(Double.parseDouble(token.getValue()));
             } else {
                 double operand1 = stack.pop();
                 double operand2 = stack.pop();
 
-                switch (element.getType()) {
+                switch (token.getType()) {
                     case OP_PLUS:
                         stack.push(operand1 + operand2);
                         break;
@@ -42,10 +40,6 @@ public class Calculator {
                 }
             }
         }
-//        if (!stack.empty()) {
-//            System.out.println("Wrong expression");
-//        }
-
         return stack.pop();
     }
 }
