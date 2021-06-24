@@ -1,38 +1,47 @@
 package dfa;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
+
 import static org.junit.Assert.*;
 
 public class StateTest {
 
-    State testState = new State("S1", true);
+    State firstState;
+    State nextState;
+    Map<Character, State> testTransit;
+    char symbol;
+
+    @Before
+    public void beforeEach() {
+        firstState = new State("S1", true);
+        nextState = new State("S2", false);
+        testTransit = new HashMap<>();
+        symbol = '.';
+    }
+
 
     @Test
     public void getId() {
-        Assert.assertEquals("S1", testState.getId());
+        Assert.assertEquals("S1", firstState.getId());
     }
 
     @Test
     public void isFinite() {
-        assertTrue(testState.isFinite());
+        assertTrue(firstState.isFinite());
     }
 
     @Test
     public void getName() {
-        State testState = new State("S1", true);
-        testState.setName("NUMBER");
-        Assert.assertEquals("NUMBER", testState.getName());
+        firstState.setName("NUMBER");
+        Assert.assertEquals("NUMBER", firstState.getName());
     }
 
     @Test
     public void addTransition() {
-        Map<Character, State> testTransit = new HashMap<>();
-        State testState = new State("S1", true);
-        State nextState = new State("S2", false);
-        char symbol = '.';
         testTransit.put(symbol, nextState);
         Assert.assertEquals(nextState, testTransit.get(symbol));
 
@@ -40,11 +49,7 @@ public class StateTest {
 
     @Test
     public void getTransition() {
-        Map<Character, State> testTransit = new HashMap<>();
-        State testState = new State("S1", true);
-        State nextState = new State("S2", false);
-        char symbol = '.';
-        testState.addTransition(symbol, nextState);
-        Assert.assertEquals(nextState, testState.getTransition(symbol));
+        firstState.addTransition(symbol, nextState);
+        Assert.assertEquals(nextState, firstState.getTransition(symbol));
     }
 }
