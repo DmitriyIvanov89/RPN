@@ -15,7 +15,7 @@ public class LexerTest {
 
     @Before
     public void beforeEach() {
-        
+
     }
 
     @Test
