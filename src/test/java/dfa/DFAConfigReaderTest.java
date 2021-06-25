@@ -20,7 +20,7 @@ public class DFAConfigReaderTest {
     }
 
     @Test(expected = AssertionError.class)
-    public void readConfigJsonTest() throws IOException {
+    public void testReadConfigJson() throws IOException {
         //String configPath = "d:\\my\\RPE_repo\\src\\main\\resources\\dfaConfig.json";
         String configPath = "e:\\IT\\JAVA\\my_project\\rpn_repo\\RPN\\src\\main\\resources\\dfaConfig.json";
         DFAConfigReader testReader = new DFAConfigReader(configPath);
