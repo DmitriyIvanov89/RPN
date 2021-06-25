@@ -2,6 +2,7 @@ package dfa;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class State {
 
@@ -43,5 +44,18 @@ public class State {
     @Override
     public String toString() {
         return String.format("State: %s, type: %s", id, name);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        State state = (State) obj;
+        return Objects.equals(id, state.id) && finite == state.finite && Objects.equals(name, state.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, finite, name, transition);
     }
 }

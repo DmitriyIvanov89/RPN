@@ -20,12 +20,12 @@ public class DFATest {
         reader = new DFAConfigReader(CONFIG_PATH);
         dfaConfig = reader.readConfigJson();
         dfa = new DFA(dfaConfig);
-        startState = new State("S0", false);
-        startState.setName("DEFAULT");
     }
 
     @Test
     public void testGetStartState() {
+        startState = new State("S0", false);
+        startState.setName("DEFAULT");
         Assert.assertEquals(startState, dfa.getStartState());
     }
 
