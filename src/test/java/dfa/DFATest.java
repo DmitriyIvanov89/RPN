@@ -1,41 +1,39 @@
 package dfa;
 
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Test;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-public class DFATest extends TestCase {
+public class DFATest {
 
-
-    private State testStartState;
-    private DFAConfig testDFAConfig;
-    private DFAConfigReader testReader;
-    private DFA testDFA;
+    private State startState;
+    private DFAConfig dfaConfig;
+    private DFAConfigReader reader;
+    private DFA dfa;
 
     private final static String CONFIG_PATH = "e:\\IT\\JAVA\\my_project\\rpn_repo\\RPN\\src\\main\\resources\\dfaConfig.json";
 
     @Before
-    public void beforeEach() throws IOException {
-        testReader = new DFAConfigReader(CONFIG_PATH);
-        testDFAConfig = testReader.readConfigJson();
-        testDFA = new DFA(testDFAConfig);
-        testStartState = new State("S0", false);
+    public void before() throws IOException {
+        reader = new DFAConfigReader(CONFIG_PATH);
+        dfaConfig = reader.readConfigJson();
+        dfa = new DFA(dfaConfig);
+        startState = new State("S0", false);
+        startState.setName("DEFAULT");
     }
 
+    @Test
     public void testGetStartState() {
-        Assert.assertEquals(testStartState, testDFA.getStartState());
+        Assert.assertEquals(startState, dfa.getStartState());
     }
 
+    @Test
     public void testCheckString() {
     }
 
+    @Test
     public void testGreedyTraversal() {
     }
 }
