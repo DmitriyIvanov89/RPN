@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
 
 public class StateTest {
 
-    State firstState;
-    State nextState;
-    Map<Character, State> testTransit;
-    char symbol;
+    private State firstState;
+    private State nextState;
+    private Map<Character, State> testTransit;
+    private char symbol;
 
     @Before
     public void beforeEach() {
@@ -22,7 +22,6 @@ public class StateTest {
         testTransit = new HashMap<>();
         symbol = '.';
     }
-
 
     @Test
     public void getId() {

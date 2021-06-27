@@ -8,10 +8,10 @@ import java.util.Stack;
 
 public class Calculator {
 
-    private final Convector convector;
+    private final Converter convector;
 
-    public Calculator(Convector convector) {
-        this.convector = convector;
+    public Calculator(Converter converter) {
+        this.convector = converter;
     }
 
     public double calculate(String expression) {

@@ -20,6 +20,8 @@ public class TraversalResult {
         return trace;
     }
 
+
+
     @Override
     public int hashCode() {
         return Objects.hash(state, trace);

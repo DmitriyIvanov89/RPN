@@ -8,25 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Convector {
+public class Converter {
 
     private final Lexer lexer;
 
-    public Convector(Lexer lexer) {
+    public Converter(Lexer lexer) {
         this.lexer = lexer;
     }
 
     public List<Token> convertExpressionToRPN(String expr) {
-        List<Token> tokensIn = new ArrayList<>();
         List<Token> tokensOut = new ArrayList<>();
         Stack<Token> stackOperations = new Stack<>();
 
-        for (int i = 0; i < expr.length(); i++) {
-            if (lexer.lookAhead().getType() != TokenType.EOF) {
-                tokensIn.add(lexer.getNextToken());
-            }
-        }
-        for (Token token : tokensIn) {
+        while (lexer.lookAhead().getType() != TokenType.EOF) {
+            Token token = lexer.getNextToken();
+
             if (token.getType() == TokenType.DELIMITER) {
                 continue;
             }
