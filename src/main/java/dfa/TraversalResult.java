@@ -19,7 +19,7 @@ public class TraversalResult {
     public String getTrace() {
         return trace;
     }
-    
+
     @Override
     public int hashCode() {
         return Objects.hash(state, trace);
